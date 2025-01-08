@@ -96,8 +96,8 @@ function PlayerControls({ cartRef }) {
     camera.position.z += moveVector.z;
 
     if (cartRef.current) {
-      cartRef.current.position.x = camera.position.x; // Align with player's X position
-      cartRef.current.position.z = camera.position.z - 0.5; // Move closer to the player on the Z-axis
+      cartRef.current.position.x = camera.position.x; 
+      cartRef.current.position.z = camera.position.z - 0.5; 
     }
   });
 
@@ -106,28 +106,36 @@ function PlayerControls({ cartRef }) {
 
 // --- Building (Static Elements) ---
 function Building() {
-  return (
-    <>
-      <mesh position={[0, -0.5, 0]}>
-        <boxGeometry args={[200, 1, 20]} />
-        <meshStandardMaterial color="gray" />
-      </mesh>
-      <mesh position={[0, 2.5, -10]}>
-        <boxGeometry args={[200, 5, 1]} />
-        <meshStandardMaterial color="lightblue" />
-      </mesh>
-      <mesh position={[0, 5, 0]}>
-        <boxGeometry args={[200, 1, 20]} />
-        <meshStandardMaterial color="lightgray" />
-      </mesh>
-    </>
-  );
+
+  const { scene } = useGLTF("../assets/store.glb")
+
+  return <primitive object={scene} position={[0, 0, 0]} scale={[1, 1, 1]} />;
+  // return (
+  //   <>
+  //     <mesh position={[0, -0.5, 0]}>
+  //       <boxGeometry args={[200, 1, 20]} />
+  //       <meshStandardMaterial color="gray" />
+  //     </mesh>
+  //     <mesh position={[0, 2.5, -10]}>
+  //       <boxGeometry args={[200, 5, 1]} />
+  //       <meshStandardMaterial color="lightblue" />
+  //     </mesh>
+  //     <mesh position={[0, 5, 0]}>
+  //       <boxGeometry args={[200, 1, 20]} />
+  //       <meshStandardMaterial color="lightgray" />
+  //     </mesh>
+  //     <mesh position={[0, 2.5, 10]}>
+  //       <boxGeometry args={[200, 5, 1]} />
+  //       <meshStandardMaterial color="lightblue" />
+  //     </mesh>
+  //   </>
+  // );
 }
 
-// --- Supermarket Area ---
+// --- store shelves ---
 function Supermarket() {
   const { scene } = useGLTF("../assets/store_shelves.glb"); // Replace with the actual path to your .glb file
-
+  
   return (
     <>
       <primitive object={scene.clone()} position={[-5, 0, 5]} scale={1.5} />
@@ -138,9 +146,9 @@ function Supermarket() {
 
 // --- Cart Component ---
 function Cart({ cartRef }) {
-  const { scene } = useGLTF("../assets/shopping_cart.glb"); // Replace with the actual path to your cart.glb file
+  const { scene } = useGLTF("../assets/shopping_cart.glb"); 
 
-  return <primitive object={scene} ref={cartRef} scale={[0.5, 0.5, 0.5]} />;
+  return <primitive object={scene} ref={cartRef} scale={[0.1, 0.1, 0.1]} />;
 }
 
 // --- Product Component ---
@@ -170,9 +178,27 @@ function Products({ onAddToCart }) {
       glbPath: "../assets/a.glb",
       positions: [
         [-5.3, 1.9, 5],
-        [-1, 1, 5],
+        
       ],
       scale: [0.5, 0.5, 0.5],
+    },
+    {
+      name: "Banana Box",
+      glbPath: "../assets/banana_box.glb",
+      positions: [
+        [3, 1, 4]
+      ],
+      scale: [0.007, 0.007, 0.007],
+       // Adjust the scale as needed
+    },
+    {
+    name: "pro1",
+      glbPath: "../assets/product1.glb",
+      positions: [
+        
+        [-1, 1, 5],
+      ],
+      scale: [0.1, 0.1, 0.1],
     },
   ];
 
@@ -201,6 +227,8 @@ export default function App() {
   const handleAddToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
   };
+  
+  
 
   return (
     <div style={{ height: "100vh" }}>
