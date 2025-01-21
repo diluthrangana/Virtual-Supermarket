@@ -4,10 +4,10 @@ import { OrbitControls, useGLTF, Environment } from "@react-three/drei";
 import { ACESFilmicToneMapping, LinearSRGBColorSpace, Vector3 } from "three";
 import products from "../data/Products";
 
-// --- First Person Camera Controls ---
+//Camera Controls
 function PlayerControls({ cartRef }) {
   const { camera } = useThree();
-  const moveSpeed = 0.3; // Adjusted to make movement smoother
+  const moveSpeed = 0.3; 
   const sensitivity = 0.002;
 
   const keys = useRef({
@@ -105,19 +105,19 @@ function PlayerControls({ cartRef }) {
   return null;
 }
 
-// --- Building ---
+//Building
 function Building() {
-  const { scene } = useGLTF("../../assets/store1.glb");
+  const { scene } = useGLTF("../../assets/store.glb");
   return <primitive object={scene} position={[0, 0, 0]} scale={[1, 1, 1]} />;
 }
 
-// --- Cart Component ---
+//Cart Component
 function Cart({ cartRef }) {
   const { scene } = useGLTF("../../assets/shopping_cart.glb");
   return <primitive object={scene} ref={cartRef} scale={[0.1, 0.1, 0.1]} />;
 }
 
-// --- Checkout Component ---
+//Checkout Component
 function Checkout({ onProceedToCheckout }) {
   const { scene } = useGLTF("../../assets/checkout.glb");
   return (
@@ -130,7 +130,7 @@ function Checkout({ onProceedToCheckout }) {
   );
 }
 
-// --- Product Component ---
+//Product Component
 function Product({ scale, glbPath, position, name, price, onAddToCart }) {
   const { scene } = useGLTF(glbPath);
 
@@ -149,7 +149,7 @@ function Product({ scale, glbPath, position, name, price, onAddToCart }) {
   );
 }
 
-// --- Products Component ---
+//Products Component
 function Products({ onAddToCart }) {
   return (
     <>
@@ -170,7 +170,7 @@ function Products({ onAddToCart }) {
   );
 }
 
-// --- Main Supermarket Component ---
+//Main Supermarket Component
 export default function Supermarket() {
   const [cart, setCart] = useState([]);
   const [showCheckout, setShowCheckout] = useState(false);
