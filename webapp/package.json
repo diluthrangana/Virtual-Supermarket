@@ -3,17 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@react-three/drei": "^9.120.3",
-    "@react-three/fiber": "^8.17.10",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
+    "@react-three/drei": "^9.120.6",
+    "@react-three/fiber": "^8.17.12",
+    "@testing-library/react": "^14.3.1",
+    "axios": "^1.7.9",
     "cra-template": "1.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^7.1.1",
     "react-scripts": "5.0.1",
-    "three": "^0.171.0",
-    "web-vitals": "^2.1.0"
+    "three": "^0.172.0",
+    "web-vitals": "^4.2.4",
+    "webapp": "file:"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,6 +41,6 @@
     ]
   },
   "devDependencies": {
-    "source-map-loader": "^5.0.0"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
