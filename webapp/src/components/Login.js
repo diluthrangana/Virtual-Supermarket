@@ -17,7 +17,7 @@ const Login = () => {
         password,
       });
       localStorage.setItem("token", response.data.token);
-      navigate("/supermarket"); // Redirect to a protected route after successful login
+      navigate("/supermarket"); 
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");
     }
@@ -73,7 +73,7 @@ const styles = {
     borderRadius: "10px",
     boxShadow: "0 6px 12px rgba(0, 0, 0, 0.1)",
     width: "100%",
-    maxWidth: "450px", // Ensure maximum width is set for balanced layout
+    maxWidth: "450px", 
     display: "flex",
     flexDirection: "column",
     alignItems: "stretch",
@@ -102,7 +102,7 @@ const styles = {
     marginBottom: "8px",
   },
   input: {
-    width: "100%", // Ensures inputs stretch to full width
+    width: "100%", 
     padding: "12px",
     fontSize: "16px",
     border: "1px solid #ddd",
@@ -110,7 +110,7 @@ const styles = {
     backgroundColor: "#f5f7fa",
     color: "#333",
     transition: "border-color 0.3s ease",
-    boxSizing: "border-box", // Ensures padding doesn't affect the input width
+    boxSizing: "border-box", 
   },
   inputFocus: {
     borderColor: "#1a73e8",
@@ -122,7 +122,7 @@ const styles = {
     marginBottom: "20px",
   },
   submitButton: {
-    width: "100%", // Ensures button stretches to full width
+    width: "100%", 
     padding: "14px",
     fontSize: "16px",
     color: "#fff",
@@ -131,7 +131,7 @@ const styles = {
     borderRadius: "6px",
     cursor: "pointer",
     transition: "background-color 0.3s ease",
-    marginTop: "10px", // Adds space between the inputs and the button
+    marginTop: "10px", 
   },
 };
 
